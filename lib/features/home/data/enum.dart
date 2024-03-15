@@ -1,0 +1,1 @@
+enum SelectionStatus { selected, unselected }
