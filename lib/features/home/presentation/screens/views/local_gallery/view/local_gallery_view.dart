@@ -30,7 +30,7 @@ class LocalGalleryView extends StatelessWidget {
                 child: Column(
                   children: [
                     20.heightBox,
-                    _buildAppBar(state),
+                    _buildScreenBar(state),
                     20.heightBox,
                     ...[
                       Expanded(
@@ -69,19 +69,21 @@ class LocalGalleryView extends StatelessWidget {
     );
   }
 
-  Row _buildAppBar(LocalGalleryState state) {
+  Row _buildScreenBar(LocalGalleryState state) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         30.widthBox,
         AppText(text: AppStrings.localAlbum, fontSize: 20),
-        Align(
-          alignment: Alignment.centerRight,
-          child: InkWell(
-            onTap: () => syncedGalleryBloc.add(SyncedGalleryEvent.saveImages(images: state.selectedImages)),
-            child: AppSVGImage(image: Assets.icons.sync, width: 35),
-          ),
-        ),
+        state.isSelectionEnabled
+            ? Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
+                  onTap: () => syncedGalleryBloc.add(SyncedGalleryEvent.saveImages(images: state.selectedImages)),
+                  child: AppSVGImage(image: Assets.icons.sync, width: 35),
+                ),
+              )
+            : 30.widthBox,
       ],
     );
   }
