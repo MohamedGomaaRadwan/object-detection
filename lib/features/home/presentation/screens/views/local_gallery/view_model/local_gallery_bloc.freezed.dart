@@ -780,7 +780,6 @@ mixin _$LocalGalleryState {
   bool get isImageSelected => throw _privateConstructorUsedError;
   List<ImageModel> get images => throw _privateConstructorUsedError;
   List<ImageModel> get selectedImages => throw _privateConstructorUsedError;
-  Map<String, bool> get selectedImageIds => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -801,7 +800,6 @@ abstract class $LocalGalleryStateCopyWith<$Res> {
       bool isImageSelected,
       List<ImageModel> images,
       List<ImageModel> selectedImages,
-      Map<String, bool> selectedImageIds,
       String? errorMessage});
 }
 
@@ -824,7 +822,6 @@ class _$LocalGalleryStateCopyWithImpl<$Res, $Val extends LocalGalleryState>
     Object? isImageSelected = null,
     Object? images = null,
     Object? selectedImages = null,
-    Object? selectedImageIds = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -852,10 +849,6 @@ class _$LocalGalleryStateCopyWithImpl<$Res, $Val extends LocalGalleryState>
           ? _value.selectedImages
           : selectedImages // ignore: cast_nullable_to_non_nullable
               as List<ImageModel>,
-      selectedImageIds: null == selectedImageIds
-          ? _value.selectedImageIds
-          : selectedImageIds // ignore: cast_nullable_to_non_nullable
-              as Map<String, bool>,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -879,7 +872,6 @@ abstract class _$$LocalGalleryStateImplCopyWith<$Res>
       bool isImageSelected,
       List<ImageModel> images,
       List<ImageModel> selectedImages,
-      Map<String, bool> selectedImageIds,
       String? errorMessage});
 }
 
@@ -900,7 +892,6 @@ class __$$LocalGalleryStateImplCopyWithImpl<$Res>
     Object? isImageSelected = null,
     Object? images = null,
     Object? selectedImages = null,
-    Object? selectedImageIds = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_$LocalGalleryStateImpl(
@@ -928,10 +919,6 @@ class __$$LocalGalleryStateImplCopyWithImpl<$Res>
           ? _value._selectedImages
           : selectedImages // ignore: cast_nullable_to_non_nullable
               as List<ImageModel>,
-      selectedImageIds: null == selectedImageIds
-          ? _value._selectedImageIds
-          : selectedImageIds // ignore: cast_nullable_to_non_nullable
-              as Map<String, bool>,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -950,11 +937,9 @@ class _$LocalGalleryStateImpl implements _LocalGalleryState {
       this.isImageSelected = false,
       final List<ImageModel> images = const [],
       final List<ImageModel> selectedImages = const [],
-      final Map<String, bool> selectedImageIds = const {},
       this.errorMessage})
       : _images = images,
-        _selectedImages = selectedImages,
-        _selectedImageIds = selectedImageIds;
+        _selectedImages = selectedImages;
 
   @override
   @JsonKey()
@@ -986,21 +971,12 @@ class _$LocalGalleryStateImpl implements _LocalGalleryState {
     return EqualUnmodifiableListView(_selectedImages);
   }
 
-  final Map<String, bool> _selectedImageIds;
-  @override
-  @JsonKey()
-  Map<String, bool> get selectedImageIds {
-    if (_selectedImageIds is EqualUnmodifiableMapView) return _selectedImageIds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_selectedImageIds);
-  }
-
   @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'LocalGalleryState(isLoading: $isLoading, isDeleteImage: $isDeleteImage, isSelectionEnabled: $isSelectionEnabled, isImageSelected: $isImageSelected, images: $images, selectedImages: $selectedImages, selectedImageIds: $selectedImageIds, errorMessage: $errorMessage)';
+    return 'LocalGalleryState(isLoading: $isLoading, isDeleteImage: $isDeleteImage, isSelectionEnabled: $isSelectionEnabled, isImageSelected: $isImageSelected, images: $images, selectedImages: $selectedImages, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1019,8 +995,6 @@ class _$LocalGalleryStateImpl implements _LocalGalleryState {
             const DeepCollectionEquality().equals(other._images, _images) &&
             const DeepCollectionEquality()
                 .equals(other._selectedImages, _selectedImages) &&
-            const DeepCollectionEquality()
-                .equals(other._selectedImageIds, _selectedImageIds) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -1034,7 +1008,6 @@ class _$LocalGalleryStateImpl implements _LocalGalleryState {
       isImageSelected,
       const DeepCollectionEquality().hash(_images),
       const DeepCollectionEquality().hash(_selectedImages),
-      const DeepCollectionEquality().hash(_selectedImageIds),
       errorMessage);
 
   @JsonKey(ignore: true)
@@ -1053,7 +1026,6 @@ abstract class _LocalGalleryState implements LocalGalleryState {
       final bool isImageSelected,
       final List<ImageModel> images,
       final List<ImageModel> selectedImages,
-      final Map<String, bool> selectedImageIds,
       final String? errorMessage}) = _$LocalGalleryStateImpl;
 
   @override
@@ -1068,8 +1040,6 @@ abstract class _LocalGalleryState implements LocalGalleryState {
   List<ImageModel> get images;
   @override
   List<ImageModel> get selectedImages;
-  @override
-  Map<String, bool> get selectedImageIds;
   @override
   String? get errorMessage;
   @override

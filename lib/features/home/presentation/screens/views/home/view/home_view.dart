@@ -17,10 +17,8 @@ class HomeView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          60.heightBox,
-          AppContainer(child: AppImage(path: Assets.images.detect.path, isRemote: false)),
-          20.heightBox,
           AppText(text: AppStrings.openYourCameraToDetectObjects),
           60.heightBox,
           _buildOpenCameraButton(),
@@ -34,7 +32,7 @@ class HomeView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         InkWell(
-          onTap: ()=>_navigationService.routeTo(AppRoute.objectDetectionScreen),
+          onTap: ()=>_navigationService.routeTo(AppRoute.objectDetectionView),
           child: AppContainer(
             color: AppColors.primaryColor,
             child: Column(

@@ -19,44 +19,38 @@ mixin _$ObjectDetectionEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() startDetection,
-    required TResult Function() stopDetection,
+    required TResult Function(InputImage image) onImageProcessing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? startDetection,
-    TResult? Function()? stopDetection,
+    TResult? Function(InputImage image)? onImageProcessing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? startDetection,
-    TResult Function()? stopDetection,
+    TResult Function(InputImage image)? onImageProcessing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnInitEvent value) init,
-    required TResult Function(_OnStartDetectionEvent value) startDetection,
-    required TResult Function(_OnStopDetectionEvent value) stopDetection,
+    required TResult Function(_OnImageProcessingEvent value) onImageProcessing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnInitEvent value)? init,
-    TResult? Function(_OnStartDetectionEvent value)? startDetection,
-    TResult? Function(_OnStopDetectionEvent value)? stopDetection,
+    TResult? Function(_OnImageProcessingEvent value)? onImageProcessing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnInitEvent value)? init,
-    TResult Function(_OnStartDetectionEvent value)? startDetection,
-    TResult Function(_OnStopDetectionEvent value)? stopDetection,
+    TResult Function(_OnImageProcessingEvent value)? onImageProcessing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,8 +114,7 @@ class _$OnInitEventImpl implements _OnInitEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() startDetection,
-    required TResult Function() stopDetection,
+    required TResult Function(InputImage image) onImageProcessing,
   }) {
     return init();
   }
@@ -130,8 +123,7 @@ class _$OnInitEventImpl implements _OnInitEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? startDetection,
-    TResult? Function()? stopDetection,
+    TResult? Function(InputImage image)? onImageProcessing,
   }) {
     return init?.call();
   }
@@ -140,8 +132,7 @@ class _$OnInitEventImpl implements _OnInitEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? startDetection,
-    TResult Function()? stopDetection,
+    TResult Function(InputImage image)? onImageProcessing,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -154,8 +145,7 @@ class _$OnInitEventImpl implements _OnInitEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnInitEvent value) init,
-    required TResult Function(_OnStartDetectionEvent value) startDetection,
-    required TResult Function(_OnStopDetectionEvent value) stopDetection,
+    required TResult Function(_OnImageProcessingEvent value) onImageProcessing,
   }) {
     return init(this);
   }
@@ -164,8 +154,7 @@ class _$OnInitEventImpl implements _OnInitEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnInitEvent value)? init,
-    TResult? Function(_OnStartDetectionEvent value)? startDetection,
-    TResult? Function(_OnStopDetectionEvent value)? stopDetection,
+    TResult? Function(_OnImageProcessingEvent value)? onImageProcessing,
   }) {
     return init?.call(this);
   }
@@ -174,8 +163,7 @@ class _$OnInitEventImpl implements _OnInitEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnInitEvent value)? init,
-    TResult Function(_OnStartDetectionEvent value)? startDetection,
-    TResult Function(_OnStopDetectionEvent value)? stopDetection,
+    TResult Function(_OnImageProcessingEvent value)? onImageProcessing,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -190,73 +178,97 @@ abstract class _OnInitEvent implements ObjectDetectionEvent {
 }
 
 /// @nodoc
-abstract class _$$OnStartDetectionEventImplCopyWith<$Res> {
-  factory _$$OnStartDetectionEventImplCopyWith(
-          _$OnStartDetectionEventImpl value,
-          $Res Function(_$OnStartDetectionEventImpl) then) =
-      __$$OnStartDetectionEventImplCopyWithImpl<$Res>;
+abstract class _$$OnImageProcessingEventImplCopyWith<$Res> {
+  factory _$$OnImageProcessingEventImplCopyWith(
+          _$OnImageProcessingEventImpl value,
+          $Res Function(_$OnImageProcessingEventImpl) then) =
+      __$$OnImageProcessingEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({InputImage image});
 }
 
 /// @nodoc
-class __$$OnStartDetectionEventImplCopyWithImpl<$Res>
+class __$$OnImageProcessingEventImplCopyWithImpl<$Res>
     extends _$ObjectDetectionEventCopyWithImpl<$Res,
-        _$OnStartDetectionEventImpl>
-    implements _$$OnStartDetectionEventImplCopyWith<$Res> {
-  __$$OnStartDetectionEventImplCopyWithImpl(_$OnStartDetectionEventImpl _value,
-      $Res Function(_$OnStartDetectionEventImpl) _then)
+        _$OnImageProcessingEventImpl>
+    implements _$$OnImageProcessingEventImplCopyWith<$Res> {
+  __$$OnImageProcessingEventImplCopyWithImpl(
+      _$OnImageProcessingEventImpl _value,
+      $Res Function(_$OnImageProcessingEventImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = null,
+  }) {
+    return _then(_$OnImageProcessingEventImpl(
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as InputImage,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$OnStartDetectionEventImpl implements _OnStartDetectionEvent {
-  _$OnStartDetectionEventImpl();
+class _$OnImageProcessingEventImpl implements _OnImageProcessingEvent {
+  _$OnImageProcessingEventImpl({required this.image});
+
+  @override
+  final InputImage image;
 
   @override
   String toString() {
-    return 'ObjectDetectionEvent.startDetection()';
+    return 'ObjectDetectionEvent.onImageProcessing(image: $image)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnStartDetectionEventImpl);
+            other is _$OnImageProcessingEventImpl &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnImageProcessingEventImplCopyWith<_$OnImageProcessingEventImpl>
+      get copyWith => __$$OnImageProcessingEventImplCopyWithImpl<
+          _$OnImageProcessingEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() startDetection,
-    required TResult Function() stopDetection,
+    required TResult Function(InputImage image) onImageProcessing,
   }) {
-    return startDetection();
+    return onImageProcessing(image);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? startDetection,
-    TResult? Function()? stopDetection,
+    TResult? Function(InputImage image)? onImageProcessing,
   }) {
-    return startDetection?.call();
+    return onImageProcessing?.call(image);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? startDetection,
-    TResult Function()? stopDetection,
+    TResult Function(InputImage image)? onImageProcessing,
     required TResult orElse(),
   }) {
-    if (startDetection != null) {
-      return startDetection();
+    if (onImageProcessing != null) {
+      return onImageProcessing(image);
     }
     return orElse();
   }
@@ -265,157 +277,48 @@ class _$OnStartDetectionEventImpl implements _OnStartDetectionEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_OnInitEvent value) init,
-    required TResult Function(_OnStartDetectionEvent value) startDetection,
-    required TResult Function(_OnStopDetectionEvent value) stopDetection,
+    required TResult Function(_OnImageProcessingEvent value) onImageProcessing,
   }) {
-    return startDetection(this);
+    return onImageProcessing(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_OnInitEvent value)? init,
-    TResult? Function(_OnStartDetectionEvent value)? startDetection,
-    TResult? Function(_OnStopDetectionEvent value)? stopDetection,
+    TResult? Function(_OnImageProcessingEvent value)? onImageProcessing,
   }) {
-    return startDetection?.call(this);
+    return onImageProcessing?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_OnInitEvent value)? init,
-    TResult Function(_OnStartDetectionEvent value)? startDetection,
-    TResult Function(_OnStopDetectionEvent value)? stopDetection,
+    TResult Function(_OnImageProcessingEvent value)? onImageProcessing,
     required TResult orElse(),
   }) {
-    if (startDetection != null) {
-      return startDetection(this);
+    if (onImageProcessing != null) {
+      return onImageProcessing(this);
     }
     return orElse();
   }
 }
 
-abstract class _OnStartDetectionEvent implements ObjectDetectionEvent {
-  factory _OnStartDetectionEvent() = _$OnStartDetectionEventImpl;
-}
+abstract class _OnImageProcessingEvent implements ObjectDetectionEvent {
+  factory _OnImageProcessingEvent({required final InputImage image}) =
+      _$OnImageProcessingEventImpl;
 
-/// @nodoc
-abstract class _$$OnStopDetectionEventImplCopyWith<$Res> {
-  factory _$$OnStopDetectionEventImplCopyWith(_$OnStopDetectionEventImpl value,
-          $Res Function(_$OnStopDetectionEventImpl) then) =
-      __$$OnStopDetectionEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$OnStopDetectionEventImplCopyWithImpl<$Res>
-    extends _$ObjectDetectionEventCopyWithImpl<$Res, _$OnStopDetectionEventImpl>
-    implements _$$OnStopDetectionEventImplCopyWith<$Res> {
-  __$$OnStopDetectionEventImplCopyWithImpl(_$OnStopDetectionEventImpl _value,
-      $Res Function(_$OnStopDetectionEventImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$OnStopDetectionEventImpl implements _OnStopDetectionEvent {
-  _$OnStopDetectionEventImpl();
-
-  @override
-  String toString() {
-    return 'ObjectDetectionEvent.stopDetection()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OnStopDetectionEventImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() startDetection,
-    required TResult Function() stopDetection,
-  }) {
-    return stopDetection();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
-    TResult? Function()? startDetection,
-    TResult? Function()? stopDetection,
-  }) {
-    return stopDetection?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? startDetection,
-    TResult Function()? stopDetection,
-    required TResult orElse(),
-  }) {
-    if (stopDetection != null) {
-      return stopDetection();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_OnInitEvent value) init,
-    required TResult Function(_OnStartDetectionEvent value) startDetection,
-    required TResult Function(_OnStopDetectionEvent value) stopDetection,
-  }) {
-    return stopDetection(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnInitEvent value)? init,
-    TResult? Function(_OnStartDetectionEvent value)? startDetection,
-    TResult? Function(_OnStopDetectionEvent value)? stopDetection,
-  }) {
-    return stopDetection?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnInitEvent value)? init,
-    TResult Function(_OnStartDetectionEvent value)? startDetection,
-    TResult Function(_OnStopDetectionEvent value)? stopDetection,
-    required TResult orElse(),
-  }) {
-    if (stopDetection != null) {
-      return stopDetection(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _OnStopDetectionEvent implements ObjectDetectionEvent {
-  factory _OnStopDetectionEvent() = _$OnStopDetectionEventImpl;
+  InputImage get image;
+  @JsonKey(ignore: true)
+  _$$OnImageProcessingEventImplCopyWith<_$OnImageProcessingEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$ObjectDetectionState {
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get isDetectionOn => throw _privateConstructorUsedError;
-  List<Map<String, dynamic>> get detectionResults =>
-      throw _privateConstructorUsedError;
-  CameraController? get cameraController => throw _privateConstructorUsedError;
+  CustomPaint? get customPaint => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -429,12 +332,7 @@ abstract class $ObjectDetectionStateCopyWith<$Res> {
           $Res Function(ObjectDetectionState) then) =
       _$ObjectDetectionStateCopyWithImpl<$Res, ObjectDetectionState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isDetectionOn,
-      List<Map<String, dynamic>> detectionResults,
-      CameraController? cameraController,
-      String? errorMessage});
+  $Res call({bool isLoading, CustomPaint? customPaint, String? errorMessage});
 }
 
 /// @nodoc
@@ -452,9 +350,7 @@ class _$ObjectDetectionStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? isLoading = null,
-    Object? isDetectionOn = null,
-    Object? detectionResults = null,
-    Object? cameraController = freezed,
+    Object? customPaint = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -462,18 +358,10 @@ class _$ObjectDetectionStateCopyWithImpl<$Res,
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isDetectionOn: null == isDetectionOn
-          ? _value.isDetectionOn
-          : isDetectionOn // ignore: cast_nullable_to_non_nullable
-              as bool,
-      detectionResults: null == detectionResults
-          ? _value.detectionResults
-          : detectionResults // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      cameraController: freezed == cameraController
-          ? _value.cameraController
-          : cameraController // ignore: cast_nullable_to_non_nullable
-              as CameraController?,
+      customPaint: freezed == customPaint
+          ? _value.customPaint
+          : customPaint // ignore: cast_nullable_to_non_nullable
+              as CustomPaint?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -490,12 +378,7 @@ abstract class _$$ObjectDetectionStateImplCopyWith<$Res>
       __$$ObjectDetectionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isDetectionOn,
-      List<Map<String, dynamic>> detectionResults,
-      CameraController? cameraController,
-      String? errorMessage});
+  $Res call({bool isLoading, CustomPaint? customPaint, String? errorMessage});
 }
 
 /// @nodoc
@@ -510,9 +393,7 @@ class __$$ObjectDetectionStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? isDetectionOn = null,
-    Object? detectionResults = null,
-    Object? cameraController = freezed,
+    Object? customPaint = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(_$ObjectDetectionStateImpl(
@@ -520,18 +401,10 @@ class __$$ObjectDetectionStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isDetectionOn: null == isDetectionOn
-          ? _value.isDetectionOn
-          : isDetectionOn // ignore: cast_nullable_to_non_nullable
-              as bool,
-      detectionResults: null == detectionResults
-          ? _value._detectionResults
-          : detectionResults // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      cameraController: freezed == cameraController
-          ? _value.cameraController
-          : cameraController // ignore: cast_nullable_to_non_nullable
-              as CameraController?,
+      customPaint: freezed == customPaint
+          ? _value.customPaint
+          : customPaint // ignore: cast_nullable_to_non_nullable
+              as CustomPaint?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -544,37 +417,19 @@ class __$$ObjectDetectionStateImplCopyWithImpl<$Res>
 
 class _$ObjectDetectionStateImpl implements _ObjectDetectionState {
   _$ObjectDetectionStateImpl(
-      {this.isLoading = false,
-      this.isDetectionOn = false,
-      final List<Map<String, dynamic>> detectionResults = const [],
-      this.cameraController,
-      this.errorMessage})
-      : _detectionResults = detectionResults;
+      {this.isLoading = false, this.customPaint, this.errorMessage});
 
   @override
   @JsonKey()
   final bool isLoading;
   @override
-  @JsonKey()
-  final bool isDetectionOn;
-  final List<Map<String, dynamic>> _detectionResults;
-  @override
-  @JsonKey()
-  List<Map<String, dynamic>> get detectionResults {
-    if (_detectionResults is EqualUnmodifiableListView)
-      return _detectionResults;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_detectionResults);
-  }
-
-  @override
-  final CameraController? cameraController;
+  final CustomPaint? customPaint;
   @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'ObjectDetectionState(isLoading: $isLoading, isDetectionOn: $isDetectionOn, detectionResults: $detectionResults, cameraController: $cameraController, errorMessage: $errorMessage)';
+    return 'ObjectDetectionState(isLoading: $isLoading, customPaint: $customPaint, errorMessage: $errorMessage)';
   }
 
   @override
@@ -584,24 +439,15 @@ class _$ObjectDetectionStateImpl implements _ObjectDetectionState {
             other is _$ObjectDetectionStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.isDetectionOn, isDetectionOn) ||
-                other.isDetectionOn == isDetectionOn) &&
-            const DeepCollectionEquality()
-                .equals(other._detectionResults, _detectionResults) &&
-            (identical(other.cameraController, cameraController) ||
-                other.cameraController == cameraController) &&
+            (identical(other.customPaint, customPaint) ||
+                other.customPaint == customPaint) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isDetectionOn,
-      const DeepCollectionEquality().hash(_detectionResults),
-      cameraController,
-      errorMessage);
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, customPaint, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -615,19 +461,13 @@ class _$ObjectDetectionStateImpl implements _ObjectDetectionState {
 abstract class _ObjectDetectionState implements ObjectDetectionState {
   factory _ObjectDetectionState(
       {final bool isLoading,
-      final bool isDetectionOn,
-      final List<Map<String, dynamic>> detectionResults,
-      final CameraController? cameraController,
+      final CustomPaint? customPaint,
       final String? errorMessage}) = _$ObjectDetectionStateImpl;
 
   @override
   bool get isLoading;
   @override
-  bool get isDetectionOn;
-  @override
-  List<Map<String, dynamic>> get detectionResults;
-  @override
-  CameraController? get cameraController;
+  CustomPaint? get customPaint;
   @override
   String? get errorMessage;
   @override
